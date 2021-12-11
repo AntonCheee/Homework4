@@ -121,7 +121,7 @@ namespace Homework4
 
         public static int[] Task8(int[] array)
         {
-            for (int i = 0; i < array.Length % 2; i++)
+            for (int i = 0; i < array.Length / 2; i++)
             {
                 Swap(ref array[i], ref array[i + array.Length / 2 + array.Length % 2]);
             }
