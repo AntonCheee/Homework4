@@ -25,9 +25,9 @@ namespace Homework4
             //}
         }
 
-        public static double Task1(int[] array)
+        public static int Task1(int[] array)
         {
-            double minElement = array[0];
+            int minElement = array[0];
 
             for (int i = 1; i < array.Length; i++)
             {
@@ -40,9 +40,9 @@ namespace Homework4
             return minElement;
         }
 
-        public static double Task2(int[] array)
+        public static int Task2(int[] array)
         {
-            double maxElement = array[0];
+            int maxElement = array[0];
             for (int i = 1; i < array.Length; i++)
             {
                 if (maxElement < array[i])
@@ -113,7 +113,9 @@ namespace Homework4
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 == 1)
+                {
                     sumOddElements += array[i];
+                }
             }
 
             return sumOddElements;
@@ -121,9 +123,11 @@ namespace Homework4
 
         public static int[] Task8(int[] array)
         {
+            int additional = array.Length / 2 + array.Length % 2;
+
             for (int i = 0; i < array.Length / 2; i++)
             {
-                Swap(ref array[i], ref array[i + array.Length / 2 + array.Length % 2]);
+                Swap(ref array[i], ref array[i + additional]);
             }
 
             return array;
@@ -133,19 +137,19 @@ namespace Homework4
         {
             var minPosition = 0;
 
-            for (int a = 0; a < array.Length; a++)
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int position = a; position < array.Length; position++)
+                for (int j = i; j < array.Length; j++)
                 {
-                    if (array[minPosition] > array[position])
+                    if (array[minPosition] > array[j])
                     {
-                        minPosition = position;
+                        minPosition = j;
                     }
                 }
 
-                Swap(ref array[a], ref array[minPosition]);
+                Swap(ref array[i], ref array[minPosition]);
 
-                minPosition = a + 1;
+                minPosition = i + 1;
             }
 
             return array;
