@@ -25,66 +25,47 @@ namespace Homework4
             //}
         }
 
-        public static int Task1(int[] array)
+        public static int FindMinElement(int[] array)
         {
-            int minElement = array[0];
+            return array[FindIndexMinElement(array)];
+        }
+
+        public static int FindMaxElement(int[] array)
+        {
+            return array[FindIndexMaxElement(array)];
+        }
+
+        public static int FindIndexMaxElement(int[] array)
+        {
+            int indexMaxElement = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (minElement > array[i])
+                if (array[i] > array[indexMaxElement])
                 {
-                    minElement = array[i];
+                    indexMaxElement = i;
                 }
             }
 
-            return minElement;
+            return indexMaxElement;
         }
 
-        public static int Task2(int[] array)
+        public static int FindIndexMinElement(int[] array)
         {
-            int maxElement = array[0];
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (maxElement < array[i])
-                {
-                    maxElement = array[i];
-                }
-            }
-
-            return maxElement;
-        }
-
-        public static int Task3(int[] array)
-        {
-            int index = 0;
+            int indexMinElement = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (array[index] > array[i])
+                if (array[i] < array[indexMinElement])
                 {
-                    index = i;
+                    indexMinElement = i;
                 }
             }
 
-            return index;
+            return indexMinElement;
         }
 
-        public static int Task4(int[] array)
-        {
-            int index = 0;
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[index] < array[i])
-                {
-                    index = i;
-                }
-            }
-
-            return index;
-        }
-
-        public static int Task5(int[] array)
+        public static int FindSumOddIndexElements(int[] array)
         {
             int sumOddIndexElements = 0;
 
@@ -96,7 +77,7 @@ namespace Homework4
             return sumOddIndexElements;
         }
 
-        public static int[] Task6(int[] array)
+        public static int[] Reverse(int[] array)
         {
             for (int i = 0; i < array.Length / 2; i++)
             {
@@ -106,7 +87,7 @@ namespace Homework4
             return array;
         }
 
-        public static int Task7(int[] array)
+        public static int CalculateSumOddElements(int[] array)
         {
             int sumOddElements = 0;
 
@@ -121,7 +102,7 @@ namespace Homework4
             return sumOddElements;
         }
 
-        public static int[] Task8(int[] array)
+        public static int[] SwapFirstAndSecondArrayParts(int[] array)
         {
             int additional = array.Length / 2 + array.Length % 2;
 
@@ -133,7 +114,7 @@ namespace Homework4
             return array;
         }
 
-        public static int[] Task9(int[] array)
+        public static int[] MakeSelectionSort(int[] array)
         {
             var minPosition = 0;
 
@@ -155,7 +136,7 @@ namespace Homework4
             return array;
         }
 
-        public static int[] Task10(int[] array)
+        public static int[] MakeInsertSort(int[] array)
         {
             for (int a = 1; a < array.Length; a++)
             {
@@ -163,8 +144,7 @@ namespace Homework4
                 {
                     if (array[a] > array[i])
                     {
-                        Swap(ref array[a], ref array[i]);
-                        a--;
+                        Swap(ref array[a--], ref array[i]);
                     }
                 }
             }
